@@ -1,0 +1,7 @@
+file_roots:
+  base:
+    - /opt/SOMS-master/soms/media/salt
+
+pillar_roots: 
+  base:
+    - /opt/SOMS-master/soms/media/pillar

@@ -1,0 +1,1246 @@
+System check identified some issues:
+
+WARNINGS:
+deploy.ModuleUpload.user_group: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 1 issue (0 silenced).
+[05/Aug/2019 15:49:42] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 15:49:42] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 15:49:43] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 15:49:46] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:49:46] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:49:46] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:49:49] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:49:49] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:49:49] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:49:51] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 15:49:51] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:49:51] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:49:51] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+Performing system checks...
+
+August 05, 2019 - 15:49:38
+Django version 1.11.15, using settings 'soms.settings'
+Starting development server at http://172.16.104.41:8080/
+Quit the server with CONTROL-C.
+[{'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'master', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 43 39 6f d6 82 4d-ff c2 cc 5d d8 5b 4a cf', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-957.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-TEST01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'wangxuefei-lin01.edu.com', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 39 ba 06 91 1d ff-28 b3 31 01 b1 9e 41 54', 'cpu_nums': '4', 'memory': '7.8G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'RedHat7.6 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN02', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-1', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 17 a8 c0 b0 29 39-e6 d8 f3 54 13 78 41 82', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN03', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-2', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 3a 6e 5d 92 6c a2-64 bd 06 da 56 8e 2f db', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}]
+[{'kernel': 'Linux3.10.0-957.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-TEST01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'wangxuefei-lin01.edu.com', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 39 ba 06 91 1d ff-28 b3 31 01 b1 9e 41 54', 'cpu_nums': '4', 'memory': '7.8G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'RedHat7.6 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'master', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 43 39 6f d6 82 4d-ff c2 cc 5d d8 5b 4a cf', 'cpu_nums': '8', [05/Aug/2019 15:49:53] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 15:49:53] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:49:53] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:49:53] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN02', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-1', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 17 a8 c0 b0 29 39-e6 d8 f3 54 13 78 41 82', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN03', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-2', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 3a 6e 5d 92 6c a2-64 bd 06 da 56 8e 2f db', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}]
+[{'kernel': 'Linux3.10.0-957.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-TEST01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'wangxuefei-lin01.edu.com', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 39 ba 06 91 1d ff-28 b3 31 01 b1 9e 41 54', 'cpu_nums': '4', 'memory': '7.8G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'RedHat7.6 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'master', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 43 39 6f d6 82 4d-ff c2 cc 5d d8 5b 4a cf', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN02', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-1', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 17 a8 c0 b0 29 39-e6 d8 f3 54 13 78 41 82', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN03', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-2', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 3a 6e 5d 92 6c a2-64 bd 06 da 56 8e 2f db', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9[05/Aug/2019 15:49:55] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 15:49:55] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:49:55] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:49:55] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:49:57] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 15:49:57] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:49:57] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:49:57] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}]
+[{'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'master', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 43 39 6f d6 82 4d-ff c2 cc 5d d8 5b 4a cf', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-957.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-TEST01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'wangxuefei-lin01.edu.com', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 39 ba 06 91 1d ff-28 b3 31 01 b1 9e 41 54', 'cpu_nums': '4', 'memory': '7.8G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'RedHat7.6 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN02', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-1', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 17 a8 c0 b0 29 39-e6 d8 f3 54 13 78 41 82', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN03', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-2', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 3a 6e 5d 92 6c a2-64 bd 06 da 56 8e 2f db', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}]
+[{'kernel': 'Linux3.10.0-957.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-TEST01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'wangxuefei-lin01.edu.com', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 39 ba 06 91 1d ff-28 b3 31 01 b1 9e 41 54', 'cpu_nums': '4', 'memory': '7.8G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'RedHat7.6 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'master', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 43 39 6f d6 82 4d-ff c2 cc 5d d8 5b 4a cf', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'Cen[05/Aug/2019 15:50:01] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 15:50:01] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:50:01] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:50:01] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:50:05] "GET /deploy/remote_execution/ HTTP/1.1" 200 28503
+[05/Aug/2019 15:50:05] "GET /static/css/green.css HTTP/1.1" 200 1411
+[05/Aug/2019 15:50:05] "GET /static/css/bootstrapValidator.min.css HTTP/1.1" 200 244
+[05/Aug/2019 15:50:05] "GET /static/css/bootstrap-select.min.css HTTP/1.1" 200 6650
+[05/Aug/2019 15:50:05] "GET /static/js/icheck.min.js HTTP/1.1" 200 4959
+[05/Aug/2019 15:50:05] "GET /static/js/bootstrap-modal-vertical.js HTTP/1.1" 200 727
+[05/Aug/2019 15:50:05] "GET /static/js/bootstrap-select.js HTTP/1.1" 200 68138
+[05/Aug/2019 15:50:05] "GET /static/js/bootstrapValidator.min.js HTTP/1.1" 200 110933
+[05/Aug/2019 15:50:05] "GET /static/js/multiselect.min.js HTTP/1.1" 200 9134
+[05/Aug/2019 15:50:05] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 15:50:13] "GET /static/img/loading.gif HTTP/1.1" 200 30269
+[05/Aug/2019 15:50:15] "POST /deploy/remote_execution/exec/ HTTP/1.1" 200 260
+[05/Aug/2019 15:51:15] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:51:15] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 15:51:15] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:51:15] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:51:17] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 15:51:17] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:51:17] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:51:17] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:51:20] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 15:51:28] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:51:28] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:51:28] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:51:37] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 15:51:46] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 15:51:49] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 15:51:49] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:51:49] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:51:51] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 15:51:53] "GET /deploy/remote_execution/ HTTP/1.1" 200 28503
+[05/Aug/2019 15:51:53] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 15:51:59] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16230
+[05/Aug/2019 15:53:00] "GET /deploy/remote_execution/ HTTP/1.1" 200 28503
+[05/Aug/2019 15:53:00] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 15:53:02] "GET /deploy/module_deploy/ HTTP/1.1" 200 29218
+[05/Aug/2019 15:53:02] "GET /static/js/json2yaml.js HTTP/1.1" 200 2509
+[05/Aug/2019 15:53:02] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 15:53:04] "GET /deploy/module_manage/add/ HTTP/1.1" 200 23355
+[05/Aug/2019 15:53:04] "GET /static/jquery-file-upload/vendor/jquery.ui.widget.js HTTP/1.1" 200 16089
+[05/Aug/2019 15:53:04] "GET /static/jquery-file-upload/jquery.iframe-transport.js HTTP/1.1" 200 10724
+[05/Aug/2019 15:53:04] "GET /static/jquery-file-upload/jquery.fileupload.js HTTP/1.1" 200 63769
+[05/Aug/2019 15:53:04] "GET /static/jquery-file-upload/progress-bar-upload.js HTTP/1.1" 200 4581
+[05/Aug/2019 15:53:04] "GET /static/img/green.png HTTP/1.1" 200 1444
+[05/Aug/2019 15:53:07] "GET /help/ HTTP/1.1" 200 13999
+[05/Aug/2019 15:53:09] "GET /about/ HTTP/1.1" 200 17647
+[05/Aug/2019 15:53:13] "GET /help/ HTTP/1.1" 200 13999
+[05/Aug/2019 15:54:00] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 15:54:00] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:54:00] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:56:52] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:56:52] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:56:52] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 15:57:06] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 15:57:06] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 15:57:16] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 15:57:16] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 15:57:16] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:10:30] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:10:30] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:10:30] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:10:30] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:10:34] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 16:12:00] "GET /asset/idc/list/ HTTP/1.1" 200 21316
+[05/Aug/2019 16:12:00] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:12:00] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:12:02] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:12:02] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:12:02] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:12:04] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 16:12:04] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:12:05] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:12:06] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 16:14:58] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:14:58] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:14:58] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:15:00] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 16:15:28] "GET /asset/idc/list/ HTTP/1.1" 200 21316
+[05/Aug/2019 16:15:28] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:15:28] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:15:30] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:15:30] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:15:30] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:15:32] "GET /asset/server_info/?aid=3 HTTP/1.1" 200 18831
+[05/Aug/2019 16:15:46] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:15:46] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:15:46] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:15:56] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 16:15:56] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:16:24] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 16:18:18] "GET / HTTP/1.1" 200 12552
+[05/Aug/2019 16:18:18] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:20:24] "GET / HTTP/1.1" 200 12629
+[05/Aug/2019 16:21:35] "GET / HTTP/1.1" 200 12714
+[05/Aug/2019 16:26:33] "GET / HTTP/1.1" 200 12623
+[05/Aug/2019 16:26:33] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:28:29] "GET / HTTP/1.1" 200 12634
+[05/Aug/2019 16:28:29] "GET /static/img/avatar2.jpg HTTP/1.1" 200 13554
+[05/Aug/2019 16:28:38] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 16:28:38] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:28:39] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:28:39] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:28:39] "GET / HTTP/1.1" 200 12634
+[05/Aug/2019 16:29:04] "GET / HTTP/1.1" 200 12634
+[05/Aug/2019 16:29:10] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 16:29:10] "GET /static/img/avatar2.jpg HTTP/1.1" 200 13554
+[05/Aug/2019 16:29:10] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:29:10] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:29:11] "GET / HTTP/1.1" 200 12634
+[05/Aug/2019 16:29:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 65536
+[2019-08-05 16:29:11,846] - Broken pipe from ('172.16.29.75', 5532)
+
+[05/Aug/2019 16:29:27] "GET / HTTP/1.1" 200 12634
+[05/Aug/2019 16:30:32] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 16:30:32] "GET /static/css/custom.min.css HTTP/1.1" 200 65536
+[2019-08-05 16:30:32,829] - Broken pipe from ('172.16.29.75', 5547)
+
+[05/Aug/2019 16:30:32] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:30:32] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:30:36] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 16:30:37] "GET /deploy/remote_execution/ HTTP/1.1" 200 28503
+[05/Aug/2019 16:30:37] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 16:30:44] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:30:44] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:30:44] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:31:05] "GET /asset/server_info/?aid=4 HTTP/1.1" 200 18831
+[05/Aug/2019 16:34:06] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 16:34:06] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/css/custom.min.css HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/js/jquery.jeditable.js HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/js/custom.min.js HTTP/1.1" 304 0
+[05/Aug/2019 16:34:06] "GET /static/img/avatar2.jpg HTTP/1.1" 200 13554
+[05/Aug/2019 16:40:42] "GET / HTTP/1.1" 200 12634
+[05/Aug/2019 16:40:42] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:40:42] "GET /static/img/avatar2.jpg HTTP/1.1" 200 13554
+[05/Aug/2019 16:41:14] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 16:41:14] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:41:23] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 16:41:23] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:41:23] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:41:25] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 16:41:27] "GET /deploy/remote_execution/ HTTP/1.1" 200 28503
+[05/Aug/2019 16:41:27] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 16:41:29] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 16:41:47] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:41:47] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:41:47] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:41:55] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 16:42:04] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:42:05] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:42:05] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:43:33] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 16:43:35] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:43:35] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:43:35] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:44:08] "GET /asset/idc/list/ HTTP/1.1" 200 21316
+[05/Aug/2019 16:44:08] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:44:08] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:44:10] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:44:10] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:44:10] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:44:14] "GET /asset/idc/list/ HTTP/1.1" 200 21316
+[05/Aug/2019 16:44:14] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:44:14] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:44:18] "GET /userauth/user/list/ HTTP/1.1" 200 20913
+[05/Aug/2019 16:44:18] "GET /static/js/display_select.js HTTP/1.1" 200 438
+[05/Aug/2019 16:44:39] "GET /userauth/group/list/ HTTP/1.1" 200 14314
+[05/Aug/2019 16:44:41] "GET /user_perm/exec/ HTTP/1.1" 200 16327
+[05/Aug/2019 16:44:42] "GET /userauth/user/list/ HTTP/1.1" 200 20913
+[05/Aug/2019 16:44:47] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 16:44:48] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:44:48] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+Not Found: /favicon.ico
+[05/Aug/2019 16:48:48] "GET /favicon.ico HTTP/1.1" 404 11691
+[05/Aug/2019 16:48:50] "GET / HTTP/1.1" 302 0
+[05/Aug/2019 16:48:50] "GET /accounts/login/?next=/ HTTP/1.1" 200 2312
+[05/Aug/2019 16:48:50] "GET /static/css/animate.min.css HTTP/1.1" 404 1674
+Not Found: /favicon.ico
+[05/Aug/2019 16:48:50] "GET /favicon.ico HTTP/1.1" 404 11691
+[05/Aug/2019 16:51:20] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 16:51:23] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+[05/Aug/2019 16:51:23] "GET /static/js/validator.min.js HTTP/1.1" 200 5955
+[05/Aug/2019 16:51:26] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 16:51:30] "GET /deploy/group_manage/delete?id=13&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 16:51:30] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 16:51:31] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+[05/Aug/2019 16:53:33] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 16:53:33] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 16:53:34] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 16:53:34] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 16:53:35] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 16:56:35] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 16:56:38] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+[05/Aug/2019 17:02:42] "GET /deploy/remote_execution/ HTTP/1.1" 200 28415
+Internal Server Error: /deploy/group_minions/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 640, in salt_group_minions
+    minions = SaltGroup.objects.get(pk=gid).minions.all()
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 371, in get
+    clone = self.filter(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 784, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 802, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1250, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1276, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1210, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1104, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/usr/lib/python2.7/site-packages/django/db/models/lookups.py", line 74, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 966, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+[05/Aug/2019 17:02:42] "POST /deploy/group_minions/ HTTP/1.1" 500 16880
+[05/Aug/2019 17:02:43] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 17:02:43] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 17:02:45] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:02:45] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:02:45] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:02:47] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:02:49] "GET /deploy/remote_execution/ HTTP/1.1" 200 28415
+Internal Server Error: /deploy/group_minions/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 640, in salt_group_minions
+    minions = SaltGroup.objects.get(pk=gid).minions.all()
+  File "/usr/lib/python2.7/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 371, in get
+    clone = self.filter(*args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 784, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/query.py", line 802, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1250, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1276, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1210, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/usr/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1104, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/usr/lib/python2.7/site-packages/django/db/models/lookups.py", line 74, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/usr/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 966, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+[05/Aug/2019 17:02:49] "POST /deploy/group_minions/ HTTP/1.1" 500 16880
+[05/Aug/2019 17:02:52] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:02:53] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:02:55] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 17:03:49] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15382
+[05/Aug/2019 17:03:55] "GET /deploy/group_list/ HTTP/1.1" 200 18036
+[05/Aug/2019 17:04:12] "GET /deploy/group_list/ HTTP/1.1" 200 18036
+[05/Aug/2019 17:04:13] "GET /deploy/remote_execution/ HTTP/1.1" 200 28502
+[05/Aug/2019 17:04:13] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 17:04:19] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16230
+[05/Aug/2019 17:08:36] "GET /deploy/remote_execution/ HTTP/1.1" 200 28502
+[05/Aug/2019 17:08:36] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 17:08:36] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:08:37] "GET /deploy/group_list/ HTTP/1.1" 200 18036
+[05/Aug/2019 17:08:40] "GET /deploy/group_manage/delete?id=14&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 17:08:40] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:08:42] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:08:42] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:08:42] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:08:43] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:08:44] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 17:10:30] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15386
+[05/Aug/2019 17:10:35] "GET /deploy/group_list/ HTTP/1.1" 200 18040
+[05/Aug/2019 17:10:39] "GET /deploy/remote_execution/ HTTP/1.1" 200 28504
+[05/Aug/2019 17:10:39] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:10:41] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:10:41] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 17:10:45] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16230
+[05/Aug/2019 17:15:47] "GET /deploy/group_list/ HTTP/1.1" 200 18040
+[05/Aug/2019 17:15:49] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:15:49] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:15:49] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:15:50] "GET /deploy/group_list/ HTTP/1.1" 200 18040
+[05/Aug/2019 17:15:53] "GET /deploy/group_manage/delete?id=15&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 17:15:53] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:15:54] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:15:54] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:15:54] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:15:55] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:15:56] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:15:57] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:15:57] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:16:13] "GET /deploy/key_list_import/ HTTP/1.1" 302 0
+[05/Aug/2019 17:16:13] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:16:13] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:16:14] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:16:19] "GET /deploy/key_list_import/ HTTP/1.1" 302 0
+[05/Aug/2019 17:16:19] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:16:19] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:16:19] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:16:20] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:16:21] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 17:16:36] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15380
+[05/Aug/2019 17:17:39] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 17:17:41] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 17:17:41] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 17:17:47] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16230
+[05/Aug/2019 17:20:35] "GET /accounts/login/?next=/ HTTP/1.1" 200 2312
+Not Found: /favicon.ico
+[05/Aug/2019 17:20:35] "GET /favicon.ico HTTP/1.1" 404 11691
+[05/Aug/2019 17:26:35] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 17:26:35] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 17:26:35] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:26:37] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:26:37] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:26:37] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:32:09] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 17:32:09] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:32:09] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:32:34] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 17:32:35] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 17:32:40] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:32:40] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:32:40] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:32:42] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 17:32:44] "GET /deploy/group_manage/delete?id=16&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 17:32:44] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:32:47] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 17:33:07] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15382
+[05/Aug/2019 17:33:11] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 17:33:14] "GET /deploy/remote_execution/ HTTP/1.1" 200 28500
+[05/Aug/2019 17:33:14] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:33:18] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:33:18] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 17:33:22] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16231
+[05/Aug/2019 17:35:20] "GET /accounts/login/?next=/ HTTP/1.1" 200 2307
+[05/Aug/2019 17:35:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[05/Aug/2019 17:35:20] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[05/Aug/2019 17:35:20] "GET /static/css/animate.min.css HTTP/1.1" 404 1674
+[05/Aug/2019 17:35:20] "GET /static/css/custom.min.css HTTP/1.1" 304 0
+[05/Aug/2019 17:35:20] "GET /static/fonts/fontawesome-webfont.eot? HTTP/1.1" 304 0
+[05/Aug/2019 17:39:01] "GET /deploy/remote_execution/ HTTP/1.1" 200 28500
+[05/Aug/2019 17:39:02] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:39:03] "GET /deploy/remote_execution/ HTTP/1.1" 200 28500
+[05/Aug/2019 17:39:03] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:39:05] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:39:05] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:39:05] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+Internal Server Error: /deploy/key_list_import/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 336, in salt_key_import
+    minions, minions_pre = sapi.list_all_key()
+  File "/opt/SOMS-master/deploy/saltapi.py", line 63, in list_all_key
+    self.token_id()
+  File "/opt/SOMS-master/deploy/saltapi.py", line 34, in token_id
+    content = self.postRequest(obj,prefix='/login')
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 17:40:07] "GET /deploy/key_list_import/ HTTP/1.1" 500 117993
+Not Found: /favicon.ico
+[05/Aug/2019 17:41:03] "GET /favicon.ico HTTP/1.1" 404 11691
+[05/Aug/2019 17:41:07] "GET / HTTP/1.1" 302 0
+[05/Aug/2019 17:41:07] "GET /accounts/login/?next=/ HTTP/1.1" 200 2307
+[05/Aug/2019 17:41:07] "GET /static/css/animate.min.css HTTP/1.1" 404 1674
+Not Found: /favicon.ico
+[05/Aug/2019 17:41:07] "GET /favicon.ico HTTP/1.1" 404 11691
+Not Found: /favicon.ico
+[05/Aug/2019 17:41:21] "GET /favicon.ico HTTP/1.1" 404 11691
+Internal Server Error: /deploy/key_list_import/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 336, in salt_key_import
+    minions, minions_pre = sapi.list_all_key()
+  File "/opt/SOMS-master/deploy/saltapi.py", line 63, in list_all_key
+    self.token_id()
+  File "/opt/SOMS-master/deploy/saltapi.py", line 34, in token_id
+    content = self.postRequest(obj,prefix='/login')
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 503: Service Unavailable
+[05/Aug/2019 17:41:23] "GET /deploy/key_list_import/ HTTP/1.1" 500 117977
+[05/Aug/2019 17:42:43] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:42:43] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 17:42:43] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:42:43] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:42:44] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 17:43:04] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 17:43:06] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:43:06] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:43:06] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:43:09] "GET /deploy/key_list_import/ HTTP/1.1" 302 0
+[05/Aug/2019 17:43:09] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:43:09] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:43:09] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:43:14] "GET /deploy/key_list_import/ HTTP/1.1" 302 0
+[05/Aug/2019 17:43:14] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:43:14] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:43:14] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:43:15] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 17:43:23] "GET /deploy/group_manage/17/edit/ HTTP/1.1" 200 21097
+[05/Aug/2019 17:43:34] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:43:34] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:43:34] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:43:36] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 17:43:38] "GET /deploy/group_manage/delete?id=17&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 17:43:38] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:43:40] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:43:40] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:43:40] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:43:43] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 17:43:44] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 17:43:58] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15378
+[05/Aug/2019 17:44:04] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 17:44:06] "GET /deploy/remote_execution/ HTTP/1.1" 200 28500
+[05/Aug/2019 17:44:07] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 17:44:11] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16230
+[05/Aug/2019 17:46:59] "GET /deploy/remote_execution/ HTTP/1.1" 200 28500
+[05/Aug/2019 17:47:00] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:47:01] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 17:47:19] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 17:47:19] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:47:19] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+tOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN02', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-1', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 17 a8 c0 b0 29 39-e6 d8 f3 54 13 78 41 82', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN03', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-2', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 3a 6e 5d 92 6c a2-64 bd 06 da 56 8e 2f db', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}]
+[{'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'master', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.51', 'sn': 'VMware-42 11 43 39 6f d6 82 4d-ff c2 cc 5d d8 5b 4a cf', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-957.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-TEST01', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'wangxuefei-lin01.edu.com', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.41', 'sn': 'VMware-42 11 39 ba 06 91 1d ff-28 b3 31 01 b1 9e 41 54', 'cpu_nums': '4', 'memory': '7.8G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'RedHat7.6 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN02', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-1', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.52', 'sn': 'VMware-42 11 17 a8 c0 b0 29 39-e6 d8 f3 54 13 78 41 82', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}, {'kernel': 'Linux3.10.0-514.el7.x86_64', 'shell': '/bin/sh', 'nodename': u'SJS-EDU-DUHONGEN03', 'zmqversion': '4.1.4', 'saltversion': '2015.5.10', 'locale': u'detectedencoding: UTF-8\ndefaultlanguage: zh_CN\ndefaultencoding: UTF-8\n', 'selinux': u'enforced: Disabled\nenabled: False\n', 'hostname': 'node-2', 'cpu_model': 'Intel(R) Xeon(R) CPU E5-2603 0 @ 1.80GHz', 'productname': 'VMware Virtual Platform', 'network': '172.16.104.53', 'sn': 'VMware-42 11 3a 6e 5d 92 6c a2-64 bd 06 da 56 8e 2f db', 'cpu_nums': '8', 'memory': '15.9G', 'networkarea': '\xe5\xad\xa6\xe4\xb9\xa0\xe5\x8c\xba', 'disk': '200GB', 'os': 'CentOS7.3.1611 x86_64', 'manufacturer': 'VMware, Inc.'}]
+[[05/Aug/2019 17:47:22] "GET /asset/server_info/?action=flush HTTP/1.1" 302 0
+[05/Aug/2019 17:47:22] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 17:47:22] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:47:22] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:47:30] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[05/Aug/2019 17:49:17] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 17:49:17] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:49:17] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:49:18] "GET /asset/idc/list/ HTTP/1.1" 200 21316
+[05/Aug/2019 17:49:18] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:49:18] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:49:23] "GET /asset/idc/add/ HTTP/1.1" 200 21622
+[05/Aug/2019 17:49:23] "GET /static/css/bootstrap-datetimepicker.min.css HTTP/1.1" 200 11304
+[05/Aug/2019 17:49:23] "GET /static/js/bootstrap-datetimepicker.min.js HTTP/1.1" 200 37913
+[05/Aug/2019 17:49:23] "GET /static/js/bootstrap-datetimepicker.zh-CN.js HTTP/1.1" 200 826
+[05/Aug/2019 17:49:23] "GET /static/js/geo.js HTTP/1.1" 200 76207
+[05/Aug/2019 17:50:01] "POST /asset/idc/add/ HTTP/1.1" 302 0
+[05/Aug/2019 17:50:01] "GET /asset/idc/list/ HTTP/1.1" 200 24040
+[05/Aug/2019 17:50:01] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:50:01] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:50:50] "GET /asset/idc/edit/2/edit/ HTTP/1.1" 200 20084
+[05/Aug/2019 17:50:56] "POST /asset/idc/edit/2/edit/ HTTP/1.1" 302 0
+[05/Aug/2019 17:50:56] "GET /asset/idc/list/ HTTP/1.1" 200 24040
+[05/Aug/2019 17:50:56] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:50:56] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:52:04] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[05/Aug/2019 17:52:04] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:52:04] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:52:35] "GET / HTTP/1.1" 200 12625
+[05/Aug/2019 17:52:35] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 17:53:21] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 17:53:22] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:53:22] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:53:22] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:53:29] "GET /deploy/remote_execution/ HTTP/1.1" 200 28500
+[05/Aug/2019 17:53:29] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:53:43] "POST /deploy/remote_execution/exec/ HTTP/1.1" 200 968
+[05/Aug/2019 17:54:03] "GET /deploy/module_deploy/ HTTP/1.1" 200 29215
+[05/Aug/2019 17:54:03] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:54:04] "GET /deploy/module_list/ HTTP/1.1" 200 14766
+[05/Aug/2019 17:54:05] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:54:05] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:54:10] "GET /deploy/module_manage/add/ HTTP/1.1" 200 23355
+[05/Aug/2019 17:54:14] "GET /deploy/module_deploy/ HTTP/1.1" 200 29215
+[05/Aug/2019 17:54:14] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 17:54:20] "GET /deploy/module_list/ HTTP/1.1" 200 14766
+[05/Aug/2019 17:54:20] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:54:20] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:54:22] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 17:54:22] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 17:54:22] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 17:56:31] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 18:00:20] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:00:20] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 18:00:20] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:00:20] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:00:21] "GET /deploy/group_list/ HTTP/1.1" 200 18032
+[05/Aug/2019 18:00:24] "GET /deploy/group_manage/delete?id=18&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 18:00:24] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:00:51] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:00:51] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 18:01:02] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15380
+[05/Aug/2019 18:01:05] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:01:09] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 18:01:09] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 18:01:17] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16233
+[05/Aug/2019 18:05:55] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:05:55] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:05:55] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:05:56] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:05:59] "GET /deploy/group_manage/delete?id=19&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 18:05:59] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:06:01] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:06:02] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:06:02] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:06:02] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:06:03] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:06:04] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 18:06:27] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15363
+[05/Aug/2019 18:06:30] "GET /deploy/group_list/ HTTP/1.1" 200 16909
+[05/Aug/2019 18:06:32] "GET /deploy/group_manage/delete?id=20&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 18:06:32] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:06:33] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:06:33] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:06:33] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:06:35] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:06:37] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 18:06:46] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15380
+[05/Aug/2019 18:06:54] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 18:06:54] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 18:06:56] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 18:06:56] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 18:06:57] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:06:57] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 18:07:03] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16232
+[05/Aug/2019 18:10:29] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:10:32] "GET /deploy/group_manage/delete?id=21&delete=1 HTTP/1.1" 302 0
+[05/Aug/2019 18:10:32] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:10:33] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:10:33] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:10:33] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:10:35] "GET /deploy/group_list/ HTTP/1.1" 200 13288
+[05/Aug/2019 18:10:36] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[05/Aug/2019 18:10:49] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15380
+[05/Aug/2019 18:11:01] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 18:11:01] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+Internal Server Error: /deploy/remote_execution/exec/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 693, in salt_remote_exec
+    jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, expr_form)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 126, in remote_execution
+    content = self.postRequest(obj)
+  File "/opt/SOMS-master/deploy/saltapi.py", line 44, in postRequest
+    opener = urllib2.urlopen(req, context=context)
+  File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/lib64/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 500: Internal Server Error
+[05/Aug/2019 18:11:06] "POST /deploy/remote_execution/exec/ HTTP/1.1" 500 16231
+[05/Aug/2019 18:12:32] "GET /deploy/advanced_manage/ HTTP/1.1" 200 36041
+[05/Aug/2019 18:12:32] "GET /static/css/bootstrap-multiselect.css HTTP/1.1" 200 1509
+[05/Aug/2019 18:12:32] "GET /static/js/bootstrap-multiselect.js HTTP/1.1" 200 68997
+[05/Aug/2019 18:12:35] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:12:35] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:12:42] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:43] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:44] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:44] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:45] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:45] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:46] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:46] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:46] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:46] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:47] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:47] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:48] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:48] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:49] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:49] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:51] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:52] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:52] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:52] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:53] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:53] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:53] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:54] "POST /deploy/advanced_manage/ HTTP/1.1" 200 2
+[05/Aug/2019 18:12:55] "GET /deploy/module_deploy/ HTTP/1.1" 200 29216
+[05/Aug/2019 18:12:55] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 18:12:56] "GET /deploy/remote_execution/ HTTP/1.1" 200 28501
+[05/Aug/2019 18:12:56] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 18:12:57] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:12:58] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:12:59] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:12:59] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:12:59] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:24:57] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:24:57] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[05/Aug/2019 18:24:58] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 18:24:58] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 18:24:58] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 18:25:01] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[05/Aug/2019 18:25:03] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+[06/Aug/2019 08:46:16] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[06/Aug/2019 08:46:16] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99946
+[06/Aug/2019 08:46:16] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[06/Aug/2019 08:46:16] "GET /static/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4248
+[06/Aug/2019 08:46:16] "GET /static/css/custom.min.css HTTP/1.1" 200 72388
+[06/Aug/2019 08:46:16] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:16] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:16] "GET /static/js/jquery.jeditable.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:16] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:16] "GET /static/js/custom.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:16] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[06/Aug/2019 08:46:19] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/css/custom.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/js/jquery.jeditable.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/js/csrf.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/js/custom.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:19] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:46:29] "GET /asset/idc/list/ HTTP/1.1" 200 24040
+[06/Aug/2019 08:46:29] "GET /static/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:29] "GET /static/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:46:30] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:46:30] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:46:33] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[06/Aug/2019 08:46:33] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:46:34] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:46:37] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[06/Aug/2019 08:46:56] "GET /audit/log_audit/ HTTP/1.1" 200 75602
+[06/Aug/2019 08:46:57] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:46:57] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:47:14] "GET /deploy/group_list/ HTTP/1.1" 200 18034
+[06/Aug/2019 08:47:24] "GET /deploy/group_manage/add/ HTTP/1.1" 200 21070
+[06/Aug/2019 08:47:24] "GET /static/js/validator.min.js HTTP/1.1" 200 5955
+[06/Aug/2019 08:47:24] "GET /static/js/multiselect.min.js HTTP/1.1" 200 9134
+Internal Server Error: /deploy/group_manage/add/
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/lib/python2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python2.7/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/opt/SOMS-master/deploy/views.py", line 510, in salt_group_manage
+    with open('./saltconfig/nodegroup.conf', 'w') as f:
+IOError: [Errno 2] No such file or directory: './saltconfig/nodegroup.conf'
+[06/Aug/2019 08:47:46] "POST /deploy/group_manage/add/ HTTP/1.1" 500 15372
+[06/Aug/2019 08:48:01] "GET /deploy/group_list/ HTTP/1.1" 200 22022
+[06/Aug/2019 08:49:53] "GET / HTTP/1.1" 200 12625
+[06/Aug/2019 08:49:54] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99946
+[06/Aug/2019 08:49:54] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[06/Aug/2019 08:49:54] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:49:54] "GET /static/css/custom.min.css HTTP/1.1" 200 72388
+[06/Aug/2019 08:49:54] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:49:54] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:49:54] "GET /static/js/custom.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:49:54] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:49:54] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 304 0
+[06/Aug/2019 08:50:01] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[06/Aug/2019 08:50:01] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:50:01] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:50:01] "GET /static/css/custom.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:50:01] "GET /static/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4248
+[06/Aug/2019 08:50:01] "GET /static/js/jquery.dataTables.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:50:01] "GET /static/js/dataTables.bootstrap.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:50:01] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:50:01] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:50:03] "GET /deploy/group_list/ HTTP/1.1" 200 22022
+[06/Aug/2019 08:50:06] "GET /deploy/remote_execution/ HTTP/1.1" 200 28583
+[06/Aug/2019 08:50:06] "GET /static/css/bootstrapValidator.min.css HTTP/1.1" 200 244
+[06/Aug/2019 08:50:06] "GET /static/css/green.css HTTP/1.1" 200 1411
+[06/Aug/2019 08:50:06] "GET /static/js/bootstrap-modal-vertical.js HTTP/1.1" 200 727
+[06/Aug/2019 08:50:06] "GET /static/css/bootstrap-select.min.css HTTP/1.1" 200 6650
+[06/Aug/2019 08:50:06] "GET /static/js/bootstrapValidator.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:50:06] "GET /static/js/csrf.js HTTP/1.1" 200 972
+[06/Aug/2019 08:50:06] "GET /static/js/icheck.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:50:06] "GET /static/js/multiselect.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:50:06] "GET /static/js/bootstrap-select.js HTTP/1.1" 304 0
+[06/Aug/2019 08:50:06] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[06/Aug/2019 08:50:10] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[06/Aug/2019 08:50:10] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:50:10] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:51:06] "GET /asset/server_info/ HTTP/1.1" 302 0
+[06/Aug/2019 08:51:06] "GET /accounts/login/?next=/asset/server_info/ HTTP/1.1" 200 2307
+[06/Aug/2019 08:51:06] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 99946
+[06/Aug/2019 08:51:06] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 20766
+[06/Aug/2019 08:51:06] "GET /static/css/animate.min.css HTTP/1.1" 404 1674
+[06/Aug/2019 08:51:06] "GET /static/css/custom.min.css HTTP/1.1" 200 72388
+[06/Aug/2019 08:51:07] "GET /static/fonts/fontawesome-webfont.woff?v=4.1.0 HTTP/1.1" 200 83760
+Not Found: /favicon.ico
+[06/Aug/2019 08:51:07] "GET /favicon.ico HTTP/1.1" 404 11691
+[06/Aug/2019 08:51:21] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[06/Aug/2019 08:51:21] "GET /static/img/avatar1.jpg HTTP/1.1" 200 25720
+[06/Aug/2019 08:51:21] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:51:21] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:51:26] "GET /deploy/group_list/ HTTP/1.1" 200 22022
+[06/Aug/2019 08:51:26] "GET /static/img/avatar1.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /deploy/group_list/ HTTP/1.1" 200 22022
+[06/Aug/2019 08:51:32] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/css/dataTables.bootstrap.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/css/custom.min.css HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/js/jquery.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/img/avatar1.jpg HTTP/1.1" 200 25720
+[06/Aug/2019 08:51:32] "GET /static/js/custom.min.js HTTP/1.1" 304 0
+[06/Aug/2019 08:51:32] "GET /static/img/avatar2.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:52:15] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[06/Aug/2019 08:52:15] "GET /static/img/avatar1.jpg HTTP/1.1" 200 25720
+[06/Aug/2019 08:52:15] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:52:15] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:52:45] "GET /asset/idc/list/ HTTP/1.1" 200 24040
+[06/Aug/2019 08:52:45] "GET /static/img/avatar1.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:52:45] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:52:45] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:52:46] "GET /asset/server_info/ HTTP/1.1" 200 20933
+[06/Aug/2019 08:52:46] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[06/Aug/2019 08:52:46] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[06/Aug/2019 08:52:51] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18839
+[06/Aug/2019 08:52:51] "GET /static/js/jquery.jeditable.js HTTP/1.1" 304 0
+[06/Aug/2019 08:53:07] "GET / HTTP/1.1" 200 12625
+[06/Aug/2019 08:53:07] "GET /static/img/avatar1.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:53:19] "GET / HTTP/1.1" 200 12625
+[06/Aug/2019 08:55:59] "GET / HTTP/1.1" 200 12625
+[06/Aug/2019 08:55:59] "GET /static/img/avatar1.jpg HTTP/1.1" 304 0
+[06/Aug/2019 08:56:02] "GET /deploy/module_deploy/ HTTP/1.1" 200 29298
+[06/Aug/2019 08:56:03] "GET /static/js/json2yaml.js HTTP/1.1" 304 0
+[06/Aug/2019 08:56:03] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[06/Aug/2019 08:56:19] "GET /help/ HTTP/1.1" 200 13999

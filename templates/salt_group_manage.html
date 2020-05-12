@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load myinclusion %}
+{% load myuserauth %}
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>{{ page_name }}
+                                <small>|&nbsp;<a href="{% url 'group_list' %}">分组管理</a>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Settings 1</a>
+                                        </li>
+                                        <li><a href="#">Settings 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+                            <form class="form-horizontal form-border" method="post" action=""
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% if perms.deploy.edit_saltgroup %}
+                                    <fieldset>
+                                {% else %}
+                                    <fieldset disabled="disabled">
+                                {% endif %}
+                                <div class="item form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" style="text-align:left;">
+                                        <label for="id_nickname">主机分组名称:</label> <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input class="form-control" id="id_nickname" maxlength="80" name="nickname"
+                                               type="text" value="{{ group.nickname }}">
+                                        <div style="padding-top:10px;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" style="text-align:left;">
+                                        <label for="id_groupname">主机分组标识:</label> <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input class="form-control" id="id_groupname" maxlength="80" name="groupname"
+                                               type="text" value="{{ group.groupname }}"
+                                               {% ifequal action 'edit' %}readonly{% endifequal %}>
+                                        <div style="padding-top:10px;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div id="show_groups" class="row">
+                                    {% show_minions aid 'saltgroup' %}
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div>
+                                        <a href="javascript:void(0);" id="send" onclick="group_manage();"
+                                           class="btn btn-success">
+                                            {% if action == 'add' %}添加{% else %}更新{% endif %}
+                                        </a>
+                                    </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="result-alert" tabindex="-1" role="dialog"
+         aria-labelledby="result-modal" aria-hidden="true">
+        <div class="modal-loading"></div>
+        <div class="modal-dialog" style="width:30%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="modal-label">
+                        提示
+                    </h4>
+                </div>
+                <div id="modal-body" class="modal-body" style="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm"
+                            data-dismiss="modal">确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{% endblock %}
+
+{% block js %}
+    <!-- validator -->
+    <script type="text/javascript" src="/static/js/validator.min.js"></script>
+    <script type="text/javascript" src="/static/js/multiselect.min.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+        });
+
+        jQuery(document).ready(function ($) {
+            $('#search_minion').multiselect({
+                search: {
+                    left: '<input type="text" name="q" class="form-control" placeholder="Search..." />',
+                    right: '<input type="text" name="q" class="form-control" placeholder="Search..." />',
+                }
+            });
+        });
+
+        document.getElementById("id_nickname").focus();
+
+        function show_alert_modal(r) {
+            $("#result-alert .modal-body").html(r);
+            $("button").removeClass("disabled");
+            $("#result-alert").modal({backdrop: 'static', keyboard: false});
+        }
+
+        function group_manage() {
+            $(".loading").show();
+            var nickname = $("#id_nickname").val();
+            var groupname = $("#id_groupname").val();
+            var minions = $("#search_minion_to option").map(function () {
+                return $(this).val();
+            }).get();
+            {% if action == 'add' %}
+                var url = "{% url 'group_add' %}";
+                var tip = "添加";
+            {% else %}
+                url = "{% url 'group_edit' id=aid %}";
+                tip = "更新";
+            {% endif %}
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {nickname: nickname, groupname: groupname, minions: minions},
+                dataType: "json",
+                success: function (ret) {
+                    console.log(ret);
+                    $(".loading").hide();
+                    if(ret.retcode === 0){
+                    show_alert_modal("Salt分组" + tip + "完成.");
+                    $("#result-alert").modal("show").on('hide.bs.modal', function () {
+                        window.location.href = "{% url 'group_list' %}";
+                    });
+                    }else{
+                        show_alert_modal("Salt分组" + tip + "失败，原因：" + ret.msg);
+                        return false;
+                    }
+                }
+            })
+        }
+    </script>
+
+
+{% endblock %}
+

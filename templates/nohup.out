@@ -1,0 +1,102 @@
+
+Type 'manage.py help <subcommand>' for help on a specific subcommand.
+
+Available subcommands:
+
+[auth]
+    changepassword
+    createsuperuser
+
+[contenttypes]
+    remove_stale_contenttypes
+
+[django]
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+
+[sessions]
+    clearsessions
+
+[staticfiles]
+    collectstatic
+    findstatic
+    runserver
+System check identified some issues:
+
+WARNINGS:
+deploy.ModuleUpload.user_group: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 1 issue (0 silenced).
+[05/Aug/2019 14:34:12] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 14:34:12] "GET /static/css/dataTables.bootstrap.min.css HTTP/1.1" 200 4248
+[2019-08-05 14:34:12,927] - Broken pipe from ('172.16.29.75', 7974)
+
+[05/Aug/2019 14:34:12] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 14:34:13] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 14:34:14] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 14:34:14] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 14:34:14] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 14:34:15] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 14:34:16] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 14:34:17] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 14:34:17] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 14:34:17] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 14:34:19] "GET /deploy/remote_execution/ HTTP/1.1" 200 28503
+[05/Aug/2019 14:34:19] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 14:34:20] "GET /deploy/advanced_manage/ HTTP/1.1" 200 36043
+[05/Aug/2019 14:34:22] "GET /deploy/module_deploy/ HTTP/1.1" 200 29218
+[05/Aug/2019 14:34:22] "POST /deploy/group_minions/ HTTP/1.1" 200 84
+[05/Aug/2019 14:34:33] "GET / HTTP/1.1" 200 12460
+[05/Aug/2019 14:34:35] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 14:34:35] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 14:34:35] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 14:37:39] "GET /deploy/group_list/ HTTP/1.1" 200 18038
+[05/Aug/2019 14:37:40] "GET / HTTP/1.1" 200 12525
+[05/Aug/2019 14:37:40] "GET /static/img/login.jpg HTTP/1.1" 200 304267
+Performing system checks...
+
+August 05, 2019 - 14:34:10
+Django version 1.11.15, using settings 'soms.settings'
+Starting development server at http://172.16.104.41:8080/
+Quit the server with CONTROL-C.
+System check identified some issues:
+
+WARNINGS:
+deploy.ModuleUpload.user_group: (fields.W340) null has no effect on ManyToManyField.
+
+System check identified 1 issue (0 silenced).
+[05/Aug/2019 14:39:54] "GET /asset/server_info/?aid=1 HTTP/1.1" 200 18830
+[05/Aug/2019 14:40:12] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 14:40:12] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 14:40:12] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 14:40:13] "GET / HTTP/1.1" 200 12525
+[05/Aug/2019 14:40:13] "GET /static/img/login.jpg HTTP/1.1" 200 382948
+[05/Aug/2019 14:40:21] "GET / HTTP/1.1" 200 12525
+[05/Aug/2019 14:40:21] "GET /static/img/login.jpg HTTP/1.1" 304 0
+[05/Aug/2019 14:40:22] "GET / HTTP/1.1" 200 12525
+[05/Aug/2019 14:41:13] "GET /deploy/key_list/ HTTP/1.1" 200 21055
+[05/Aug/2019 14:41:14] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 404 1734
+[05/Aug/2019 14:41:14] "GET /static/fonts/glyphicons-halflings-regular.ttf HTTP/1.1" 404 1731
+[05/Aug/2019 14:41:15] "GET / HTTP/1.1" 200 12525
+[05/Aug/2019 14:41:15] "GET /static/img/login.jpg HTTP/1.1" 200 326970

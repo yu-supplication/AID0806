@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% load myfilter %}
+{% load myinclusion %}
+{% block css %}
+    <!-- iCheck -->
+    <link href="/static/css/green.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>{{ page_name }}
+                                <small>|&nbsp;<a href="{% url 'module_list' %}">模块管理</a></small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Settings 1</a>
+                                        </li>
+                                        <li><a href="#">Settings 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+                            <form class="form-horizontal form-border" method="post" action=""
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% if perms.deploy.edit_module %}
+                                    <fieldset>
+                                {% else %}
+                                    <fieldset disabled="disabled">
+                                {% endif %}
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12"><label
+                                            for="id_name">模块名称:</label> <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 inradio">
+                                        <input type="text" name="name" value="" id="id_name" required=""
+                                               class="form-control" maxlength="50">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12"><label for="id_module">调用模块:</label>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 inradio">
+                                        <input type="text" name="module" value="" id="id_module" required=""
+                                               class="form-control" maxlength="50">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12"><label for="id_attchment">模块上传:</label>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 inradio">
+                                        <div style="padding-right: 0;padding-left:0;"
+                                             class="col-xs-10 col-sm-8">
+                                            <button type="button" class="btn btn-primary js-upload-files">
+                                                <span class=""></span> 选择附件
+                                            </button>
+
+                                            {#                                            <button id="upload-btn" type="button" class="btn btn-success js-upload-exec">#}
+                                            {#                                                <span class="glyphicon glyphicon-cloud-upload"></span> 开始上传#}
+                                            {#                                            </button>#}
+                                            <span id="btn-state2" state="0"></span>
+
+                                            <input id="fileupload2" type="file" name="attchment" multiple
+                                                   style="display: none;"
+                                                   data-url="{% url 'module_upload' %}"
+                                                   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+
+
+                                        </div>
+                                        <div id="msg-alert2" class="col-xs-10 col-sm-8"
+                                             style="padding-right: 0;padding-left:0;"></div>
+                                        <div class="col-xs-10 col-sm-8" style="padding-right: 0;padding-left:0;   ">
+                                            <label id="attchment-title"
+                                                   class="hidden control-label no-padding-right"
+                                                   for="">已选择文件 </label>
+                                            <div id="attchment-preview">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-10 col-sm-8" style="padding-right: 0;padding-left:0;   ">
+                                            <label id="attchment-upload"
+                                                   class="hidden control-label no-padding-right"
+                                                   for="">已上传文件 </label>
+                                            <div id="attchment" class="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12"><label for="id_visible_0">可见等级:</label>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 inradio">
+                                        <ul id="id_visible">
+                                            <li><label onclick="radioChange(this, 1)" for="id_visible_0" style="cursor: pointer;"><input type="radio" name="visible" value="0"
+                                                                                 class="flat" id="id_visible_0">
+                                                公开</label>
+
+                                            </li>
+                                            <li><label onclick="radioChange(this, 1)" for="id_visible_1" style="cursor: pointer;"><input type="radio" name="visible" value="1"
+                                                                                 class="flat" id="id_visible_1">
+                                                属组</label>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">
+                                    </label>
+                                    <div class="user_groups col-md-9 col-sm-9 col-xs-12 inradio">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12"><label
+                                            for="id_remark">备注:</label> <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 inradio">
+                                        <input type="text" name="remark" value="" id="id_remark" class="form-control"
+                                               maxlength="255">
+                                    </div>
+                                </div>
+
+                                {% if ret %}
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">返回结果</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea class="form-control">{{ ret }}</textarea>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-2">
+                                        {% ifequal action 'add' %}
+                                            <button id="send" type="submit" class="btn btn-success">添加</button>
+                                        {% endifequal %}
+                                        {% ifequal action 'edit' %}
+                                            <button id="send" type="submit" class="btn btn-success">更新</button>
+                                        {% endifequal %}
+                                    </div>
+                                </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="/static/js/icheck.min.js"></script>
+    <script src="/static/jquery-file-upload/vendor/jquery.ui.widget.js"></script>
+    <script src="/static/jquery-file-upload/jquery.iframe-transport.js"></script>
+    <script src="/static/jquery-file-upload/jquery.fileupload.js"></script>
+    <script src="/static/jquery-file-upload/progress-bar-upload.js"></script>
+    <script type="text/javascript" src="/static/js/csrf.js"></script>
+    <script type="text/javascript">
+        {% if id %}
+            $(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'module_edit' id %}",
+                    data: {info: 'info'},
+                    dataType: "json",
+                    success: function (ret) {
+                        console.log(ret);
+                        $("#id_name").val(ret.name);
+                        $("#id_module").val(ret.module);
+                        $("#id_remark").val(ret.remark);
+                        $("#id_visible_" + ret.visible).attr("checked", true).parent().addClass('checked');
+                        console.log(ret.attchment);
+                        $("#attchment-upload").removeClass('hidden').attr('style', 'border-bottom: 2px solid #87b87f;margin-bottom: 10px;');
+                        $.each(ret.attchment, function (i, item) {
+                            console.log(i);
+                            console.log(item);
+                            $("#attchment").prepend('<p><a href="/media/' + item + '"><i class="fa fa-folder-open"></i>' + i + '</a></p>');
+                        });
+                        let html = "<select id='user_group' name='user_group' class='form-control' required='' data-bv-notempty='' data-bv-field='user_group' multiple></select>";
+                        if(ret.visible === 1) {
+                            $(".user_groups").html(html);
+                        }
+                        $.each(ret.user_group, function (i, item) {
+                            if(i in ret.user_group_select) {
+                                sel_stat = true;
+                            }else {
+                                sel_stat = false;
+                            }
+                            $("#user_group").append($('<option>', {
+                                value: i,
+                                text: item,
+                                selected: sel_stat
+                            }))
+                        })
+                    }
+                })
+            })
+        {% endif %}
+
+        function isEmptyObject(e) {
+            var t;
+            for (t in e)
+                return !1;
+            return !0
+        }
+
+        function radioChange(obj, vtype) {
+            if(vtype === 1){
+                visible = $(obj).find("input").val();
+            } else{
+                visible = $(obj).prev().val();
+            }
+            console.log(visible);
+            if (visible === "1") {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'ajax_user_groups' %}",
+                    data: {},
+                    dataType: "json",
+                    success: function (ret) {
+                        let html = "<select id='user_group' name='user_group' class='form-control' required='' data-bv-notempty='' data-bv-field='user_group' multiple></select>";
+
+                        if (isEmptyObject(ret) === false) {
+                            $(".user_groups").html(html);
+                            $.each(ret, function (i, item) {
+                                $("#user_group").append($('<option>', {
+                                    value: i,
+                                    text: item
+                                }))
+                            })
+                        } else {
+                            $(".user_groups").html("<p>用户属组不存在！</p>");
+                        }
+                    }
+                })
+            } else {
+                $(".user_groups").empty();
+            }
+        }
+
+        {% if id %}
+            //$("input[name='visible']").attr("disabled","disabled");
+        {% endif %}
+
+    </script>
+{% endblock %}

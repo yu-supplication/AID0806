@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+{% load myinclusion %}
+{% block css %}
+    <!-- iCheck -->
+    <link href="/static/css/green.css" rel="stylesheet">
+    <link href="/static/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-select.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="tabbable" id="tabs-754998">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#panel-single" data-toggle="tab">按主机下载</a>
+                            </li>
+                            <li>
+                                <a href="#panel-group" data-toggle="tab">按主机组下载</a>
+                            </li>
+                        </ul>
+
+                        <div class="x_panel" style="border-top:none;">
+                            <div class="x_title">
+                                <h2>文件管理 </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Settings 1</a>
+                                            </li>
+                                            <li><a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <div class="loading"></div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="panel-single">
+                                        <form method="post" class="form-horizontal form-border"
+                                              enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {% if perms.deploy.edit_filedownload %}
+                                                <fieldset>
+                                            {% else %}
+                                                <fieldset disabled="disabled">
+                                            {% endif %}
+                                            <div class="item form-group">
+                                                <label class="col-md-12 col-sm-12 col-xs-12">目标主机 <span
+                                                        class="required">*</span>
+                                                    <span data-toggle="popover" title="选择多个主机时，只返回所选主机共有的目录和文件"
+                                                          style="cursor: pointer;"><i class="fa fa-question-circle"></i> </span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    {% show_user_group_minions request.user.pk request.user.is_superuser 'single' %}
+                                                </div>
+                                            </div>
+                                            <div class="item form-group">
+                                                <label class="col-md-12 col-sm-12 col-xs-12">远程路径 <span
+                                                        class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="text" class="form-control" name="arg" value="{{ arg }}"
+                                                           placeholder="输入远程路径或者文件">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="child_path"/>
+                                            <div class="result item form-group panel-group" id="panel-single-ret"></div>
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="">
+                                                    <span class="esingle">
+                                                <a href="#"
+                                                   onclick="file_list('panel-single');"
+                                                   name="panel-single" role="button" class="btn btn-success">查询</a>
+                                                </span>
+                                                </div>
+                                            </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="panel-group">
+                                        <form class="form-horizontal form-border" method="post" action=""
+                                              enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {% if perms.deploy.edit_deploy %}
+                                                <fieldset>
+                                            {% else %}
+                                                <fieldset disabled="disabled">
+                                            {% endif %}
+                                            <div class="item form-group">
+                                                <label class="col-md-12 col-sm-12 col-xs-12">目标主机组 <span
+                                                        class="required">*</span>
+                                                    <span data-toggle="popover" title="选择主机组只返回组内主机共有的目录和文件"
+                                                          style="cursor: pointer;"><i class="fa fa-question-circle"></i> </span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    {% show_user_group_groups request.user.pk request.user.is_superuser %}
+                                                </div>
+                                            </div>
+                                            <div id="group_minions" name="group_minions" class="item form-group"
+                                                 style="padding-left: 10px;"></div>
+                                            <div class="item form-group">
+                                                <label class="col-md-12 col-sm-12 col-xs-12">远程路径 <span
+                                                        class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="text" class="form-control" id="egroup" name="arg" value="{{ arg }}"
+                                                           placeholder="输入远程路径或者文件">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="child_path"/>
+                                            <div class="result item form-group panel-group" id="panel-group-ret"></div>
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="">
+                                                <span class="egroup">
+                                                <a href="#"
+                                                   onclick="file_list('panel-group');"
+                                                   name="panel-group" role="button" class="btn btn-success">查询</a>
+                                                </span>
+                                                </div>
+                                            </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="result"></div>
+                    <!-- 模态框（Modal） -->
+                    <div class="modal fade" id="result-modal-salt" tabindex="-1" role="dialog"
+                         aria-labelledby="result-modal" aria-hidden="true">
+                        <div class="modal-loading"></div>
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="background-color:#272822;color:#00ff00;">
+                                <div class="modal-header" style="border-bottom:1px solid #666">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <b class="modal-title" id="result-modal" style="color:#f8f8f2">运行结果</b>&nbsp;
+                                    <a href="#" onclick="result_check('exec', '{% url 'ajax_result' %}')" role="button"
+                                       class="btn btn-dark btn-xs">重新查询</a>
+                                    <a href="#" onclick="collapse(this);" state="0" role="button"
+                                       class="btn btn-dark btn-xs">展开所有</a>
+                                </div>
+                                <div id="modal-body" class="modal-body">
+                                    <div class="panel-group" id="accordion">
+                                    </div>
+                                </div>
+                                <!--<div class="modal-footer">
+
+                                </div>-->
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+                    <input type="hidden" class="form-control" value="" id="jid">
+                    <input type="hidden" class="form-control" value="" id="exec_type">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="/static/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="/static/js/icheck.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-modal-vertical.js"></script>
+    <script type="text/javascript" src="/static/js/multiselect.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap-select.js"></script>
+    <script src="/static/js/csrf.js"></script>
+    <script>
+    get_group_minion($("#search_group"));
+
+        $(document).keypress(function (e) {
+            if (e.keyCode == 13) {
+                var ev = document.all ? window.event : e;
+                var v_id = $(ev.target).attr('id');
+                $("." + v_id + " a")[0].click();
+                e.preventDefault();
+            }
+        });
+
+        $("#search_single").multiselect({
+            search: {
+                left: '<input type="text" name="q" class="form-control" placeholder="Search..." />',
+                right: '<input type="text" name="q" class="form-control" placeholder="Search..." />',
+            },
+            fireSearch: function (value) {
+                return value.length > 0;
+            }
+        });
+
+        function get_group_minion(obj) {
+            var gid = $(obj).val();
+            $("#group_minions").empty();
+            if (gid !== '') {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'get_minions' %}",
+                    data: {gid: gid},
+                    dataType: "json",
+                    success: function (ret) {
+                        $.each(ret, function (i, item) {
+                            if (item === true)
+                                item = "在线";
+                            else
+                                item = "离线";
+                            $("#group_minions").append("<span class=\"label label-info\">" + i + " - " + item + "</span>&nbsp;");
+                        })
+                    }
+                })
+            }
+        }
+
+
+        function ajaxList(_host, _arg, _type) {
+            $(".loading").show();
+            $('#'+_type+' input[name="arg"]').val(_arg);
+            $.ajax({
+                type: "POST",
+                url: "{% url 'file_download' %}",
+                data: {tgt_select: _host, arg: _arg, check_type: _type},
+                dataType: "json",
+                success: function (ret) {
+                    $(".loading").hide();
+                    var htmls = "";
+                    ret_arr = ret[_host];
+                    console.log(ret_arr);
+                    console.log('just test');
+                    for (i = 0; i < ret_arr.length; i++) {
+                        htmls = htmls + "<a name=\"dl\" style=\"color:#29dc33;\" onClick=\"javascript:return file_dl(this, '"
+                            + _type + "');\" href='#'>" + ret_arr[i] + "</a><br />";
+                    }
+                    if ($('#'+_type+' input[name="child_path"]').val() === "0") {
+                        var arg_list = _arg.split('/');
+                        console.log(arg_list);
+                        var parent = arg_list.slice(0, -1).join('/');
+                        console.log(parent);
+                        if (parent !== "") {
+                            htmls = '<a href="#" style="color:#29dc33;" onClick=\'javascript:return ajaxList("' + _host
+                                + '", "' + parent + '", "' + _type + '")\'>返回上一级</a><br />' + htmls;
+                        }
+                    }
+                    var html = "<label class=\"col-md-12 col-sm-12 col-xs-12\">返回结果&nbsp;<span data-toggle=\"popover\" title=\"点击进入目录或者下载文件\"\n" +
+                        "style=\"cursor: pointer;\"><i class=\"fa fa-question-circle\"></i> </span></label><div class=\"col-md-12 col-sm-12 " +
+                        "col-xs-12\"><div class=\"form-control shell-result\" style=\"margin:0;\">" + htmls + "</div></div>";
+                    $("#" + _type + " .result").html(html);
+                },
+                errors: function (e) {
+                    alert("error");
+                }
+            });
+        }
+
+        function file_list(exec_type) {
+            if (exec_type === 'panel-single') {
+                var tgt_select = $("#search_single_to option").map(function () {
+                    return $(this).val();
+                }).get().join(',');
+            } else {
+                tgt_select = $("#search_group").val();
+            }
+            var remote_path = $("#"+exec_type+" input[name='arg']").val();
+            ajaxList(tgt_select, remote_path, exec_type);
+        }
+
+        function file_dl(t, _type) {
+            if (_type === 'panel-single') {
+                var tgt_select = $("#search_single_to option").map(function () {
+                    return $(this).val();
+                }).get().join(',');
+            } else {
+                tgt_select = $("#search_group").val();
+            }
+            var arg_list = t.innerHTML.split(' ');
+            var filename = arg_list[arg_list.length - 1];
+            var old_path = $("#"+_type+" input[name='arg']").val();
+            if (old_path == filename) {
+                var arg = filename;
+            } else {
+                var arg = old_path + "/" + filename;
+            }
+            if (arg_list[0][0] === 'd') {
+                console.log("test direc");
+                console.log(arg);
+                $("#"+_type+" input[name='child_path']").val(0);
+                $("#"+_type+" input[name='arg']").val(arg);
+                ajaxList(tgt_select, arg, _type);
+            } else {
+                var dict = new Array();
+                dict['tgt_select'] = tgt_select;
+                dict['arg'] = arg;
+                dict['type'] = "download";
+                dict['check_type'] = _type;
+                $(".loading").show();
+                var dform = document.createElement("form");
+                dform.target = "_blank";
+                dform.method = 'get';
+                document.body.appendChild(dform);
+                for (var i in dict) {
+                    var input = document.createElement("input");
+                    input.type = "hidden";
+                    input.name = i;
+                    input.value = dict[i];
+                    dform.appendChild(input);
+                }
+                dform.submit();
+                $(".loading").hide();
+                document.body.removeChild(dform);
+            }
+            //return false;
+        }
+    </script>
+{% endblock %}

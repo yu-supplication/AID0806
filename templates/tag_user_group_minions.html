@@ -1,0 +1,37 @@
+{% if list_type == 'advance_single' %}
+    <div id="step-single" class="">
+        <select id="search_single" name="tgt_select[]" class="selectpicker show-tick form-control" multiple="multiple"
+                data-live-search="true">
+            {% for tgt in tgt_list %}
+                <option value="{{ tgt }}">{{ tgt }}</option>
+            {% endfor %}
+        </select>
+    </div>
+{% else %}
+    <div id="step-single" class="">
+        <div class="row step-css">
+            <div class="col-sm-5 col-xs-5">
+                <select name="tgt_list[]" id="search_single" class="form-control" size="8" multiple="multiple">
+                    {% for tgt in tgt_list %}
+                        <option value="{{ tgt }}">{{ tgt }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <button type="button" id="search_single_rightAll" class="btn btn-block"><i class="fa fa-forward"></i>
+                </button>
+                <button type="button" id="search_single_rightSelected" class="btn btn-block"><i
+                        class="fa fa-chevron-right"></i></button>
+                <button type="button" id="search_single_leftSelected" class="btn btn-block"><i
+                        class="fa fa-chevron-left"></i></button>
+                <button type="button" id="search_single_leftAll" class="btn btn-block"><i class="fa fa-backward"></i>
+                </button>
+            </div>
+            <div class="col-sm-5 col-xs-5">
+                <select name="tgt_select[]" id="search_single_to" class="form-control" size="8" multiple="multiple">
+                </select>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
