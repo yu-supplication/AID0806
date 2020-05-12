@@ -99,3 +99,20 @@ def show_user_group_groups(pk, user_type):
 
 register.inclusion_tag('tag_user_group_groups.html')(show_user_group_groups)
 
+def show_user_group_groups1(pk, user_type):
+    '''
+    远程命令、模块部署及文件管理中显示用户分组
+    '''
+    print '.................................................'
+    group_dict = {}
+    if user_type:
+        group_dict = {i['id']:i['nickname'] for i in SaltGroup.objects.values('id', 'nickname')}
+    else:
+        group_dict = {i['id']:i['nickname'] for g in User.objects.get(pk=pk).group.all()
+                      for i in SaltGroup.objects.filter(user_group=g).values('id', 'nickname')}
+
+    group_dict = {'1':'测试','2':'测试1','3':'测试2','4':'测试3','5':'测试4'}
+
+    return {'group_dict':sorted(list(set(group_dict.items())))}
+
+register.inclusion_tag('tag_user_group_groups1.html')(show_user_group_groups1)
