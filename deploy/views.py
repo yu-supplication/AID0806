@@ -674,6 +674,19 @@ def salt_remote(request):
 
 
 @login_required
+def salt_script(request):
+    '''
+    salt远程命令界面
+    '''
+    print(111111111111111111111111111111)
+    if request.user.has_perm('deploy.view_deploy'):
+        return render(request, 'salt_script_exec.html', {'groups': ['panel-single', 'panel-group']})
+    else:
+        raise Http404
+
+
+
+@login_required
 def salt_remote_exec(request):
     '''
     salt远程命令执行
