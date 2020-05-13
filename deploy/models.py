@@ -257,3 +257,20 @@ class UpdateHostInfo(models.Model):
         verbose_name = u'主机资产信息'
         verbose_name_plural = u'主机资产信息管理'
 
+class FilesUpload(models.Model):
+    files_name = models.CharField(max_length=200, verbose_name=u'文件名')
+    files_path = models.CharField(max_length=200, verbose_name=u'文件路径')
+    commonly_used_variables = models.CharField(max_length=200, verbose_name=u'常用变量')
+    
+
+    def __unicode__(self):
+        return self.files_name
+    
+    class Meta:
+        default_permissions = ()
+        permissions = (
+            ("view_asset", u"部署管理"),
+            ("edit_asset", u"部署管理"),
+        )
+        verbose_name = u'远程脚本'
+        verbose_name_plural = u'脚本文件信息'

@@ -713,6 +713,33 @@ def salt_remote_exec(request):
     else:
         raise Http404
 
+@login_required
+def salt_remote_shell_exec(request):
+    '''
+    salt远程脚本执行
+    '''
+    if request.is_ajax and request.user.has_perms(['deploy.view_deploy', 'deploy.edit_deploy']):
+        result = ''
+        tgt_select = request.POST.get('tgt_select')
+        check_type = request.POST.get('check_type')
+        arg = request.POST.get('arg').strip(' ')
+        if check_type == 'panel-single':
+            tgt_type = 'list'
+        else:
+            tgt_type = 'nodegroup'
+            tgt_select = SaltGroup.objects.get(pk=tgt_select).groupname
+        sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
+                       password=settings.SALT_API['password'])
+        jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, tgt_type)
+        rst_source = sapi.salt_runner(jid)
+        rst = rst_source['info'][0]['Result']
+
+        Message.objects.create(type=u'部署管理', user=request.user.first_name, action='远程命令', action_ip=UserIP(request),
+                               content=u'远程命令： [{}]，结果：{}原始输出：{}'.format(arg, rst, rst_source))
+        return JsonResponse(rst)
+    else:
+        raise Http404
+
 
 @login_required
 def salt_module_deploy(request):
@@ -948,6 +975,46 @@ def salt_file_download(request):
 def salt_ajax_file_upload(request):
     '''
     执行文件上传
+    '''
+    if request.is_ajax():
+        check_type = request.POST.get('check_type')
+        tgt_select = request.POST.get('tgt_select')
+        files_upload = request.FILES.getlist('files_upload', None)
+        remote_path = request.POST.get('remote_path', None).strip(' ')
+        remark = request.POST.get('remark', None)
+        tag = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+        upload_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s/%s' % (request.user.id, tag)
+        if not os.path.exists(upload_dir):
+            os.makedirs(upload_dir)
+        for file in files_upload:
+            dest = open(os.path.join(upload_dir, file.name), 'wb+')
+            for chunk in file.chunks():
+                dest.write(chunk)
+            dest.close()
+        if check_type == 'panel-single':
+            tgt_type = 'list'
+        else:
+            tgt_type = 'nodegroup'
+            sgroup = SaltGroup.objects.get(pk=tgt_select)
+            tgt_select = sgroup.groupname
+
+        src_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s' % (request.user.id)
+        dst_path = '/srv/backup/user_%s/%s/%s' % (request.user.id, tag, remote_path)
+        sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
+                       password=settings.SALT_API['password'])
+        jid = sapi.remote_module(tgt_select, 'state.sls', 'file_upload',
+                                 {'SALTSRC': src_dir, 'dst_path': dst_path, 'src_path': tag, 'remote_path': remote_path,
+                                  'files': [f.name for f in files_upload]}, tgt_type)
+        rst_source = sapi.salt_runner(jid)
+        rst = rst_source['info'][0]['Result']
+
+        return JsonResponse(rst)
+
+
+@login_required
+def salt_ajax_shell_file_upload(request):
+    '''
+    执行shell脚本文件上传
     '''
     if request.is_ajax():
         check_type = request.POST.get('check_type')
