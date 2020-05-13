@@ -218,7 +218,7 @@
             $(".loading").show();
             $.ajax({
                 type: "POST",
-                url: "{% url 'ajax_exec' %}",
+                url: "{% url 'ajax_shell_exec' %}",
                 data: {tgt_select: tgt_select, arg: arg, check_type: exec_type},
                 dataType: "json",
                 success: function (ret) {
@@ -261,6 +261,60 @@
                         })
                     }
                 })
+            }
+        }
+        function file_upload(exec_type) {
+            if (exec_type === 'panel-single') {
+                var tgt_select = $("#search_single_to option").map(function () {
+                    return $(this).val();
+                }).get().join(',');
+            } else {
+                tgt_select = $("#search_group").val();
+            }
+            var formdata = new FormData($('#form-' + exec_type)[0]);
+            formdata.append('tgt_select', tgt_select);
+            formdata.append('check_type', exec_type);
+            $("#" + exec_type + " .result").empty();
+            var alert_msg = '';
+            if (tgt_select === '')
+                alert_msg = alert_msg + "请选择要上传的主机！<br />";
+            if (formdata.get('files_upload').name === '')
+                alert_msg = alert_msg + "请选择要上传的文件！<br />";
+            if (formdata.get('remote_path') === '')
+                alert_msg = alert_msg + "请填写要上传的路径！<br />";
+            if (alert_msg !== '') {
+                $("#" + exec_type + " .result").html('<div class="alert alert-danger alert-dismissible fade in" role="alert">\n' +
+                    '                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>\n' +
+                    '                    </button>' + alert_msg + '</div>');
+            } else {
+                $(".loading").show();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'shell_file_upload' %}",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    success: function (ret) {
+                        $(".loading").hide();
+                        console.log(ret);
+                        $("#" + exec_type + " input[name='files_upload']").val('');
+                        $.each(ret, function (i, item) {
+                            let t = i.replace(".", "-");
+                            if (item['retcode'] === 0 && item['success'] === true)
+                                color = '#29dc33';
+                            else
+                                color = '#ff0000';
+                            $("#" + exec_type + " .result").addClass("shell-result").append("<a class=\"collapsed\" data-toggle=\"collapse\" data-parent=\"#" + exec_type + "-ret\"\n" +
+                                "href=\"#" + exec_type + "-" + t + "\"><div style=\"color:#29dc33;\">[soms@" + i + "]$ </div></a>" +
+                                "<div id=\"" + exec_type + "-" + t + "\" class=\"panel-collapse collapse in\">\n" +
+                                "<div class=\"panel-body\" style=\"padding:5px;color:" + color + ";\">\n" + json2yaml(item['return']) + "</div></div>");
+                        });
+                    },
+                    errors: function (e) {
+                        alert("error");
+                    }
+                });
             }
         }
 
