@@ -717,11 +717,22 @@ def salt_remote_shell_exec(request):
     '''
     salt远程脚本执行
     '''
+    print '???????????????????????'
     if request.is_ajax and request.user.has_perms(['deploy.view_deploy', 'deploy.edit_deploy']):
         result = ''
         tgt_select = request.POST.get('tgt_select')
         check_type = request.POST.get('check_type')
         arg = request.POST.get('arg').strip(' ')
+        esingle = request.POST.get('esingle')
+
+        print 'post获取的数据 tgt_select ： ' + tgt_select
+        print 'post获取的数据 check_type ： ' + check_type
+        print 'post获取的数据 arg ： ' + arg
+        print 'post获取的数据 esingle ： ' + esingle
+
+        arg = FilesUpload.objects.get(files_name=arg).files_path+esingle
+
+        print '最终拼接的shell语句 ： ' + " " +arg
         if check_type == 'panel-single':
             tgt_type = 'list'
         else:
@@ -1024,7 +1035,7 @@ def salt_ajax_shell_file_upload(request):
             hoh += ','
         tgt_select = hoh[:-1]
         files_upload = request.FILES.getlist('files_upload', None)
-        remote_path = request.POST.get('remote_path', '/home/').strip(' ')
+        remote_path = request.POST.get('remote_path', 'home/').strip(' ')
         remark = request.POST.get('remark', None)
         tag = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
         upload_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s/%s' % (request.user.id, tag)
@@ -1050,6 +1061,13 @@ def salt_ajax_shell_file_upload(request):
                                   'files': [f.name for f in files_upload]}, tgt_type)
         rst_source = sapi.salt_runner(jid)
         rst = rst_source['info'][0]['Result']
+        is_exist = FilesUpload.objects.filter(files_name=file.name)
+        if is_exist:
+            FilesUpload.objects.filter(files_name=file.name).update(
+                files_path=dst_path)
+        else:
+            FilesUpload.objects.create(
+                files_name=file.name,files_path=dst_path)
         
         
         return JsonResponse(rst)
