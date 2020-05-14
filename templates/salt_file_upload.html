@@ -270,7 +270,9 @@
             } else {
                 tgt_select = $("#search_group").val();
             }
+
             var formdata = new FormData($('#form-' + exec_type)[0]);
+            console.log("被发现了~~~exec_type  panel-single",exec_type);
             formdata.append('tgt_select', tgt_select);
             formdata.append('check_type', exec_type);
             $("#" + exec_type + " .result").empty();
@@ -281,6 +283,7 @@
                 alert_msg = alert_msg + "请选择要上传的文件！<br />";
             if (formdata.get('remote_path') === '')
                 alert_msg = alert_msg + "请填写要上传的路径！<br />";
+            console.log("被发现了~~~????",formdata.get('files_upload').name);
             if (alert_msg !== '') {
                 $("#" + exec_type + " .result").html('<div class="alert alert-danger alert-dismissible fade in" role="alert">\n' +
                     '                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>\n' +

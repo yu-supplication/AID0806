@@ -678,7 +678,6 @@ def salt_script(request):
     '''
     salt远程命令界面
     '''
-    print(111111111111111111111111111111)
     if request.user.has_perm('deploy.view_deploy'):
         return render(request, 'salt_script_exec.html', {'groups': ['panel-single', 'panel-group']})
     else:
@@ -1018,9 +1017,14 @@ def salt_ajax_shell_file_upload(request):
     '''
     if request.is_ajax():
         check_type = request.POST.get('check_type')
-        tgt_select = request.POST.get('tgt_select')
+        tgt_select = SaltHost.objects.filter(status=True)
+        hoh = ''
+        for i in tgt_select:
+            hoh += i.hostname
+            hoh += ','
+        tgt_select = hoh[:-1]
         files_upload = request.FILES.getlist('files_upload', None)
-        remote_path = request.POST.get('remote_path', None).strip(' ')
+        remote_path = request.POST.get('remote_path', '/home/').strip(' ')
         remark = request.POST.get('remark', None)
         tag = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
         upload_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s/%s' % (request.user.id, tag)
@@ -1037,7 +1041,6 @@ def salt_ajax_shell_file_upload(request):
             tgt_type = 'nodegroup'
             sgroup = SaltGroup.objects.get(pk=tgt_select)
             tgt_select = sgroup.groupname
-
         src_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s' % (request.user.id)
         dst_path = '/srv/backup/user_%s/%s/%s' % (request.user.id, tag, remote_path)
         sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
@@ -1047,7 +1050,8 @@ def salt_ajax_shell_file_upload(request):
                                   'files': [f.name for f in files_upload]}, tgt_type)
         rst_source = sapi.salt_runner(jid)
         rst = rst_source['info'][0]['Result']
-
+        
+        
         return JsonResponse(rst)
 
 
