@@ -247,15 +247,9 @@
                 tgt_select = $("#search_group").val();
             }
             var esingle = $("#esingle").val();
-            // var arg = $("#"+ exec_type + " input[name='arg']").val();
-            // var arg = $("#xiaowei").val()
             var arg = document.querySelector("#step-group font > font").innerText;
             $("#" + exec_type + " .result").empty();
             $(".loading").show();
-            console.log("tgt_select: "+tgt_select);
-            console.log("arg: "+arg);
-            console.log("exec_type: "+exec_type);
-            console.log("esingle: "+esingle);
             $.ajax({
                 type: "POST",
                 url: "{% url 'ajax_shell_exec' %}",
@@ -264,7 +258,6 @@
                 dataType: "json",
                 success: function (ret) {
                     $(".loading").hide();
-                    console.log(ret);
                     $.each(ret, function (i, item) {
                         let t = i.replace(".", "-");
                         if(item['retcode']===0 && item['success']===true)
@@ -320,8 +313,8 @@
             var alert_msg = '';
             // if (tgt_select === '')
             //     alert_msg = alert_msg + "请选择要上传的主机！<br />";
-            // if (formdata.get('files_upload').name === '')
-            //     alert_msg = alert_msg + "请选择要上传的文件！<br />";
+            if (formdata.get('files_upload').name === '')
+                alert_msg = alert_msg + "请选择要上传的文件！<br />";
             // if (formdata.get('remote_path') === '')
             //     alert_msg = alert_msg + "请填写要上传的路径！<br />";
             if (alert_msg !== '') {
@@ -339,22 +332,7 @@
                     dataType: "json",
                     success: function (ret) {
                         $(".loading").hide();
-                        alert("上传成功");
-                        
-                        
-                        // console.log(ret);
-                        // $("#" + exec_type + " input[name='files_upload']").val('');
-                        // $.each(ret, function (i, item) {
-                        //     let t = i.replace(".", "-");
-                        //     if (item['retcode'] === 0 && item['success'] === true)
-                        //         color = '#29dc33';
-                        //     else
-                        //         color = '#ff0000';
-                        //     $("#" + exec_type + " .result").addClass("shell-result").append("<a class=\"collapsed\" data-toggle=\"collapse\" data-parent=\"#" + exec_type + "-ret\"\n" +
-                        //         "href=\"#" + exec_type + "-" + t + "\"><div style=\"color:#29dc33;\">[soms@" + i + "]$ </div></a>" +
-                        //         "<div id=\"" + exec_type + "-" + t + "\" class=\"panel-collapse collapse in\">\n" +
-                        //         "<div class=\"panel-body\" style=\"padding:5px;color:" + color + ";\">\n" + json2yaml(item['return']) + "</div></div>");
-                        // });
+                        location.reload()
                     },
                     errors: function (e) {
                         alert("error");
