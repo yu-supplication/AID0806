@@ -75,7 +75,7 @@
                                                 <label class="col-md-12 col-sm-12 col-xs-12">远程脚本 <span
                                                         class="required">*</span>
                                                 </label>
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div name="xiaowei" class="col-md-12 col-sm-12 col-xs-12">
                                                     {% show_user_group_groups1 request.user.pk request.user.is_superuser %}
                                                 </div>
                                             </div>
@@ -246,14 +246,21 @@
             }else{
                 tgt_select = $("#search_group").val();
             }
-            var arg = $("#"+ exec_type + " input[name='arg']").val();
-            console.log(tgt_select + "eeeaaa" + arg);
+            var esingle = $("#esingle").val();
+            // var arg = $("#"+ exec_type + " input[name='arg']").val();
+            // var arg = $("#xiaowei").val()
+            var arg = document.querySelector("#step-group font > font").innerText;
             $("#" + exec_type + " .result").empty();
             $(".loading").show();
+            console.log("tgt_select: "+tgt_select);
+            console.log("arg: "+arg);
+            console.log("exec_type: "+exec_type);
+            console.log("esingle: "+esingle);
             $.ajax({
                 type: "POST",
-                url: "{% url 'ajax_exec' %}",
-                data: {tgt_select: tgt_select, arg: arg, check_type: exec_type},
+                url: "{% url 'ajax_shell_exec' %}",
+
+                data: {tgt_select: tgt_select, arg: arg, check_type: exec_type, esingle: esingle},
                 dataType: "json",
                 success: function (ret) {
                     $(".loading").hide();

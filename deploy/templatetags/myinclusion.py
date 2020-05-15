@@ -106,12 +106,12 @@ def show_user_group_groups1(pk, user_type):
     print '.................................................'
     group_dict = {}
     if user_type:
-        group_dict = {i['id']:i['nickname'] for i in SaltGroup.objects.values('id', 'nickname')}
+        group_dict = {i['id']:i['files_name'] for i in FilesUpload.objects.values('id', 'files_name')}
     else:
-        group_dict = {i['id']:i['nickname'] for g in User.objects.get(pk=pk).group.all()
-                      for i in SaltGroup.objects.filter(user_group=g).values('id', 'nickname')}
+        group_dict = {i['id']:i['files_name'] for g in User.objects.get(pk=pk).group.all()
+                      for i in FilesUpload.objects.filter(user_group=g).values('id', 'files_name')}
 
-    group_dict = {'1':'测试','2':'测试1','3':'测试2','4':'测试3','5':'测试4'}
+    # group_dict = {'1':'测试','2':'测试1','3':'测试2','4':'测试3','5':'测试4'}
 
     return {'group_dict':sorted(list(set(group_dict.items())))}
 

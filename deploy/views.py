@@ -730,9 +730,8 @@ def salt_remote_shell_exec(request):
         print 'post获取的数据 arg ： ' + arg
         print 'post获取的数据 esingle ： ' + esingle
 
-        arg = FilesUpload.objects.get(files_name=arg).files_path+esingle
+        arg = FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
 
-        print '最终拼接的shell语句 ： ' + " " +arg
         if check_type == 'panel-single':
             tgt_type = 'list'
         else:
@@ -1052,12 +1051,19 @@ def salt_ajax_shell_file_upload(request):
             tgt_type = 'nodegroup'
             sgroup = SaltGroup.objects.get(pk=tgt_select)
             tgt_select = sgroup.groupname
-        src_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s' % (request.user.id)
+        src_dir = '/opt/SOMS-master/soms/media/salt/fileupload/user_%s' % (request.user.id) + '/' + tag
         dst_path = '/srv/backup/user_%s/%s/%s' % (request.user.id, tag, remote_path)
         sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
                        password=settings.SALT_API['password'])
+
+        print '本地路径：' + src_dir
+        print '服务器路径：' + dst_path
+        print 'tag' + tag
+        print 'remote_path' + remote_path
+        print [f.name for f in files_upload]
         jid = sapi.remote_module(tgt_select, 'state.sls', 'file_upload',
                                  {'SALTSRC': src_dir, 'dst_path': dst_path, 'src_path': tag, 'remote_path': remote_path,
+                                  # 'files': [f.name for f in files_upload]}, tgt_type)
                                   'files': [f.name for f in files_upload]}, tgt_type)
         rst_source = sapi.salt_runner(jid)
         rst = rst_source['info'][0]['Result']
