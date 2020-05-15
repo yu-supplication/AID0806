@@ -315,6 +315,9 @@
             //     alert_msg = alert_msg + "请选择要上传的主机！<br />";
             if (formdata.get('files_upload').name === '')
                 alert_msg = alert_msg + "请选择要上传的文件！<br />";
+            console.log('??????'+formdata.get('files_upload').name.slice(-3))
+            if (formdata.get('files_upload').name.slice(-3) !== '.py' & formdata.get('files_upload').name.slice(-3) !== '.sh')
+                alert_msg = alert_msg + "只支持.sh和.py文件的上传！<br />";
             // if (formdata.get('remote_path') === '')
             //     alert_msg = alert_msg + "请填写要上传的路径！<br />";
             if (alert_msg !== '') {

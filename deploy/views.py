@@ -717,17 +717,18 @@ def salt_remote_shell_exec(request):
     '''
     salt远程脚本执行
     '''
-    print '???????????????????????'
     if request.is_ajax and request.user.has_perms(['deploy.view_deploy', 'deploy.edit_deploy']):
         result = ''
         tgt_select = request.POST.get('tgt_select')
         check_type = request.POST.get('check_type')
         arg = request.POST.get('arg').strip(' ')
         esingle = request.POST.get('esingle')
-
-        
-
         arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+        # if arg.endswith('.sh') == True:
+        #     arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+        #     print '..................11111111'
+        # if arg.endswith('.py') == True:
+        #     arg = 'python ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
         print 'post获取的数据 arg ： ' + arg
         if check_type == 'panel-single':
             tgt_type = 'list'
