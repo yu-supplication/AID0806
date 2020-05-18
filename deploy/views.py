@@ -634,14 +634,19 @@ def salt_group_minions(request):
     '''
     获取不同分组下的主机列表
     '''
-    if request.user.has_perms(['deploy.view_deploy']):
-        if request.method == 'POST' and request.is_ajax:
-            gid = request.POST.get('gid', None)
-            minions = SaltGroup.objects.get(pk=gid).minions.all()
-            ret = {i.hostname: i.alive for i in minions}
-            return JsonResponse(ret)
-    else:
-        raise Http404
+    try:
+        if request.user.has_perms(['deploy.view_deploy']):
+            if request.method == 'POST' and request.is_ajax:
+                gid = request.POST.get('gid', None)
+                minions = SaltGroup.objects.get(pk=gid).minions.all()
+                ret = {i.hostname: i.alive for i in minions}
+                return JsonResponse(ret)
+        else:
+            raise Http404
+    except Exception, e:
+        ret = {'服务器错误':'服务器错误'}
+        return JsonResponse(ret)
+        pass
 
 
 @login_required
@@ -723,13 +728,11 @@ def salt_remote_shell_exec(request):
         check_type = request.POST.get('check_type')
         arg = request.POST.get('arg').strip(' ')
         esingle = request.POST.get('esingle')
-        arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
-        # if arg.endswith('.sh') == True:
-        #     arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
-        #     print '..................11111111'
-        # if arg.endswith('.py') == True:
-        #     arg = 'python ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
-        print 'post获取的数据 arg ： ' + arg
+        # arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+        if arg.endswith('.sh') == True:
+            arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+        if arg.endswith('.py') == True:
+            arg = 'python ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
         if check_type == 'panel-single':
             tgt_type = 'list'
         else:

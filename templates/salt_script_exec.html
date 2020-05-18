@@ -247,7 +247,20 @@
                 tgt_select = $("#search_group").val();
             }
             var esingle = $("#esingle").val();
-            var arg = document.querySelector("#step-group font > font").innerText;
+            if (document.querySelector("#step-group font > font")) {
+                var arg = document.querySelector("#step-group font > font").innerText;
+            }else{
+                obj = document.getElementsByTagName("span");
+                class_name = "filter-option pull-left";
+                for(i in obj){
+                    if(obj[i].className == class_name){
+                        var res = obj[i].innerHTML;
+                        if (res.slice(-3) === '.py' || res.slice(-3) === '.sh') {
+                            var arg = res;
+                        }
+                    }
+                }
+            }
             $("#" + exec_type + " .result").empty();
             $(".loading").show();
             $.ajax({
@@ -315,7 +328,6 @@
             //     alert_msg = alert_msg + "请选择要上传的主机！<br />";
             if (formdata.get('files_upload').name === '')
                 alert_msg = alert_msg + "请选择要上传的文件！<br />";
-            console.log('??????'+formdata.get('files_upload').name.slice(-3))
             if (formdata.get('files_upload').name.slice(-3) !== '.py' & formdata.get('files_upload').name.slice(-3) !== '.sh')
                 alert_msg = alert_msg + "只支持.sh和.py文件的上传！<br />";
             // if (formdata.get('remote_path') === '')
