@@ -40,6 +40,8 @@ import re
 import tarfile, zipfile
 from ruamel import yaml
 
+import traceback
+
 
 # Create your views here.
 
@@ -1074,6 +1076,42 @@ def salt_ajax_shell_file_upload(request):
         
         
         return JsonResponse(rst)
+
+# 删除脚本
+@login_required
+def delete_file(request):
+    json_ret = {"errcode":0,"msg":"success"}
+    
+    try:
+        file_name = request.POST.get('file_name',None)
+        tgt_type = 'list'
+        if file_name and file_name != '没有选择':
+            is_exist = FilesUpload.objects.get(files_name=file_name)
+            files_path = is_exist.files_path
+            tgt_select = SaltHost.objects.filter(status=True)
+            hoh = ''
+            for i in tgt_select:
+                hoh += i.hostname
+                hoh += ','
+            tgt_select = hoh[:-1]
+            arg = "rm -rf " + files_path
+            sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
+                           password=settings.SALT_API['password'])
+            jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, tgt_type)
+            rst_source = sapi.salt_runner(jid)
+            FilesUpload.objects.filter(files_name=file_name).delete()
+        else:
+            json_ret["errcode"] = 1
+            json_ret["msg"] = "文件不存在！"
+
+    except Exception, e:
+        json_ret["errcode"] = 2
+        json_ret["msg"] = "服务器错误:%s" % traceback.format_exc()
+        print '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+        print traceback.format_exc()
+        print '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+
+    return JsonResponse(json_ret)
 
 
 @login_required

@@ -14,18 +14,18 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="tabbable" id="tabs-754998">
-                        <ul class="nav nav-tabs">
+                        <!-- <ul class="nav nav-tabs">
                             <li class="active">
                                 <a href="#panel-single" data-toggle="tab">单机管理</a>
                             </li>
                             <li>
                                 <a href="#panel-group" data-toggle="tab">批量管理</a>
                             </li>
-                        </ul>
+                        </ul> -->
 
                         <div class="x_panel" style="border-top:none;">
                             <div class="x_title">
-                                <h2>远程管理 </h2>
+                                <h2>远程脚本 </h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -117,6 +117,9 @@
                                                 <a href="#"
                                                    onclick="file_upload('panel-single');"
                                                    name="panel-group" role="button" class="btn btn-success">上传</a>
+                                                <a href="#"
+                                                   onclick="javascript:return delete_file();"
+                                                   name="panel-group" role="button" class="btn btn-success">删除</a>
                                                 </span>
                                                 </div>
                                             </div>
@@ -332,6 +335,7 @@
                 alert_msg = alert_msg + "只支持.sh和.py文件的上传！<br />";
             // if (formdata.get('remote_path') === '')
             //     alert_msg = alert_msg + "请填写要上传的路径！<br />";
+            console.log(formdata+'////////')
             if (alert_msg !== '') {
                 $("#" + exec_type + " .result").html('<div class="alert alert-danger alert-dismissible fade in" role="alert">\n' +
                     '                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>\n' +
@@ -353,6 +357,46 @@
                         alert("error");
                     }
                 });
+            }
+        }
+        function delete_file() {
+            var msg = "您真的确定要删除吗？\n\n请确认！";
+            if (confirm(msg)==true){
+                if (document.querySelector("#step-group font > font")) {
+                    var file_name = document.querySelector("#step-group font > font").innerText;
+                }else{
+                    obj = document.getElementsByTagName("span");
+                    class_name = "filter-option pull-left";
+                    for(i in obj){
+                        if(obj[i].className == class_name){
+                            var res = obj[i].innerHTML;
+                            if (res.slice(-3) === '.py' || res.slice(-3) === '.sh') {
+                                var file_name = res;
+                            }
+                        }
+                    }
+                }
+                $(".loading").show();
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'delete_shell_file' %}",
+                    data: {
+                        file_name:file_name,
+                    },
+                    dataType: "json",
+                    success: function (ret) {
+                        $(".loading").hide();
+                        location.reload()
+                        if (ret.errcode===0) {alert("删除成功！");}
+                        if (ret.errcode===1) {alert("没有文件！");}
+                        if (ret.errcode===2) {alert("服务器错误！");}
+                    },
+                    errors: function (e) {
+                        alert("error");
+                    }
+                });
+                }else{
+                    return 
             }
         }
 
