@@ -724,33 +724,66 @@ def salt_remote_shell_exec(request):
     '''
     salt远程脚本执行
     '''
+    json_ret = {"errcode":0,"msg":"success"}
     if request.is_ajax and request.user.has_perms(['deploy.view_deploy', 'deploy.edit_deploy']):
         result = ''
         tgt_select = request.POST.get('tgt_select')
         check_type = request.POST.get('check_type')
         arg = request.POST.get('arg').strip(' ')
         esingle = request.POST.get('esingle')
-        # arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
-        if arg.endswith('.sh') == True:
-            arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
-        if arg.endswith('.py') == True:
-            arg = 'python ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
-        if check_type == 'panel-single':
-            tgt_type = 'list'
-        else:
-            tgt_type = 'nodegroup'
-            tgt_select = SaltGroup.objects.get(pk=tgt_select).groupname
-        sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
-                       password=settings.SALT_API['password'])
-        jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, tgt_type)
-        rst_source = sapi.salt_runner(jid)
-        rst = rst_source['info'][0]['Result']
+        if tgt_select:
+            # arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+            if arg.endswith('.sh') == True:
+                arg = 'sh ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+            if arg.endswith('.py') == True:
+                arg = 'python ' + FilesUpload.objects.get(files_name=arg).files_path+arg+" "+esingle
+            if check_type == 'panel-single':
+                tgt_type = 'list'
+            else:
+                tgt_type = 'nodegroup'
+                tgt_select = SaltGroup.objects.get(pk=tgt_select).groupname
+            sapi = SaltAPI(url=settings.SALT_API['url'], username=settings.SALT_API['user'],
+                           password=settings.SALT_API['password'])
+            jid = sapi.remote_execution(tgt_select, 'cmd.run', arg, tgt_type)
+            rst_source = sapi.salt_runner(jid)
+            rst = rst_source['info'][0]['Result']
 
-        Message.objects.create(type=u'部署管理', user=request.user.first_name, action='远程命令', action_ip=UserIP(request),
-                               content=u'远程命令： [{}]，结果：{}原始输出：{}'.format(arg, rst, rst_source))
-        return JsonResponse(rst)
+            Message.objects.create(type=u'部署管理', user=request.user.first_name, action='远程命令', action_ip=UserIP(request),
+                                   content=u'远程命令： [{}]，结果：{}原始输出：{}'.format(arg, rst, rst_source))
+            print rst
+            return JsonResponse(rst)
+        else:
+            json_ret["errcode"] = 1
+            return JsonResponse(json_ret)
     else:
         raise Http404
+
+@login_required
+def deal_ip(request):
+    '''
+    salt远程命令界面
+    '''
+    if request.user.has_perm('deploy.view_deploy'):
+        return render(request, 'deal_ip.html', {'groups': ['panel-single', 'panel-group']})
+    else:
+        raise Http404
+
+# 处理ip
+@login_required
+def execute_deal_ip(request):
+    json_ret = {"errcode":0,"msg":"success"}
+    
+    try:
+        pass
+        
+    except Exception, e:
+        json_ret["errcode"] = 2
+        json_ret["msg"] = "服务器错误:%s" % traceback.format_exc()
+        print '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+        print traceback.format_exc()
+        print '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+
+    return JsonResponse(json_ret)
 
 
 @login_required
