@@ -25,7 +25,7 @@
 
                         <div class="x_panel" style="border-top:none;">
                             <div class="x_title">
-                                <h2>远程脚本 </h2>
+                                <h2>IP处理 </h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -50,45 +50,13 @@
                                     <div class="tab-pane active" id="panel-single">
                                         <form id="form-panel-single" class="form-horizontal form-border" enctype="multipart/form-data">
                                             {% csrf_token %}
-                                            {% if perms.deploy.edit_deploy %}
-                                                <fieldset>
-                                            {% else %}
-                                                <fieldset disabled="disabled">
-                                            {% endif %}
-                                            <div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">目标主机 <span
-                                                        class="required">*</span>
+                                            <div class="item form-group">                                         
+                                                <label class="col-md-12 col-sm-12 col-xs-12">请输入IP <span
                                                 </label>
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    {% show_user_group_minions request.user.pk request.user.is_superuser 'multiple' %}
+                                                    <textarea cols="4" rows="20"></textarea>
                                                 </div>
                                             </div>
-                                            <!--<div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">远程脚本 <span
-                                                        class="required">*</span>
-                                                </label>
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <select type="text" class="form-control" id="esingle" name="arg"
-                                                           value="{{ arg }}" required="required"></select>                                                        </div>
-                                            </div>-->	
-					    <div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">远程脚本 <span
-                                                        class="required">*</span>
-                                                </label>
-                                                <div name="xiaowei" class="col-md-12 col-sm-12 col-xs-12">
-                                                    {% show_user_group_groups1 request.user.pk request.user.is_superuser %}
-                                                </div>
-                                            </div>
-                                            <div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">变量 <span
-                                                        class="required">(多个变量用空格隔开)</span>
-                                                </label>
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="text" class="form-control" id="esingle" name="arg"
-                                                           value="{{ arg }}" required="required">
-                                                </div>
-                                            </div>
-
                                             <div class="result panel-group" id="panel-single-ret"></div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
@@ -103,76 +71,10 @@
                                                     {#                                                       class="btn btn-info">查看结果</a>#}
                                                 </div>
                                             </div>
-                                            <div class="result panel-group" id="panel-single-ret"></div>
-                                            <div class="ln_solid"></div>
-                              		        <div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">选择文件 <span
-                                                        class="required">*</span>
-                                                </label>
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="file" class="" name="files_upload" multiple/>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="result panel-group" id="panel-single-ret"></div> -->
-                                            <!-- <div class="ln_solid"></div> -->
-				  	                         <div class="form-group">
-                                                <div class="">
-                                                <span class="egroup">
-                                                <a href="#"
-                                                   onclick="file_upload('panel-single');"
-                                                   name="panel-group" role="button" class="btn btn-success">上传</a>
-                                                <a href="#"
-                                                   onclick="javascript:return delete_file();"
-                                                   name="panel-group" role="button" class="btn btn-success">删除</a>
-                                                </span>
-                                                </div>
-                                            </div>
                                             </fieldset>
                                         </form>
                                     </div>
-                                    <div class="tab-pane" id="panel-group">
-                                        <form class="form-horizontal form-border" method="post" action=""
-                                              enctype="multipart/form-data">
-                                            {% csrf_token %}
-                                            {% if perms.deploy.view_deploy %}
-                                                <fieldset>
-                                            {% else %}
-                                                <fieldset disabled="disabled">
-                                            {% endif %}
-                                            <div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">目标主机组 <span
-                                                        class="required">*</span>
-                                                </label>
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    {% show_user_group_groups request.user.pk request.user.is_superuser %}
-                                                </div>
-                                            </div>
-                                            <div id="group_minions" name="group_minions" class="item form-group" style="padding-left: 10px;"></div>
-                                            <div class="item form-group">
-                                                <label class="col-md-12 col-sm-12 col-xs-12">远程脚本 <span
-                                                        class="required">*</span>
-                                                </label>
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="text" class="form-control" id="egroup" name="arg"
-                                                           value="{{ arg }}">
-                                                </div>
-                                            </div>
-                                            <div class="result panel-group" id="panel-group-ret"></div>
-                                            <div class="ln_solid"></div>
-                                            <div class="form-group">
-                                                <div class="">
-                                                <span class="egroup">
-                                                <a href="#"
-                                                   onclick="remote_exec('panel-group');"
-                                                   name="panel-group" role="button" class="btn btn-success">运行</a>
-                                                </span>
-                                                    {#                                                    <a href="#" onclick="show_result();" role="button"#}
-                                                    {#                                                       class="btn btn-info">查看结果</a>#}
-                                                </div>
-                                            </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -278,9 +180,6 @@
                 dataType: "json",
                 success: function (ret) {
                     $(".loading").hide();
-                    console.log('........................')
-                    console.log(ret)
-                    console.log('.........................')
                     $.each(ret, function (i, item) {
                         let t = i.replace(".", "-");
                         if(item['retcode']===0 && item['success']===true)
